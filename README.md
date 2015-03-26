@@ -2,7 +2,7 @@
 
 ## About this Gem
 
-While I was attending [Launch Academy][launch-academy], I decided to build a simple API in Rails that would allow myself, other developers, researchers, students, or anyone else to more easily access photo data from NASA's Mars rover Curiosity. The idea was that by surfacing those photos through an API, building apps that took advantage of this public resource would become easier.
+While I was attending [Launch Academy]("http://www.launchacademy.com/"), I decided to build a simple API in Rails that would allow myself, other developers, researchers, students, or anyone else to more easily access photo data from NASA's Mars rover Curiosity. The idea was that by surfacing those photos through an API, building apps that took advantage of this public resource would become easier.
 
 Since then I decided that to make it even easier, I would build a gem that provides a few easy to use methods that access that API for you. My hope is to eventually build a similar API for the Opportunity rover, which would also ideally be accessible through this gem.
 
@@ -44,9 +44,4 @@ image_tag(photos.first.src)
 
 # Contributing
 
-If you would like to contribute to ExploreMars, feel free to create a pull request. If you'd like to contact me, you can reach me at [chrisccerami@gmail.com][email] or on Twitter [@chrisccerami][twitter].
-
-
-[launch-academy]: "http://www.launchacademy.com/"
-[email]: "mailto:chrisccerami@gmail.com"
-[twitter]: "https://twitter.com/chrisccerami"
+If you would like to contribute to ExploreMars, feel free to create a pull request. If you'd like to contact me, you can reach me at [chrisccerami@gmail.com]("mailto:chrisccerami@gmail.com") or on Twitter [@chrisccerami]("https://twitter.com/chrisccerami").
