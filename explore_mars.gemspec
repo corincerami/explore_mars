@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'explore_mars'
-  s.version     = '0.0.3'
+  s.version     = '0.0.4'
   s.date        = '2015-03-25'
   s.summary     = "Browse photos from the Mars rover Curiosity"
   s.description = "A gem to find photos from the Curiosity rover. It serves as a Ruby wrapper for the Mars Curiosity API. My intention is to eventually build a similar API for the Opportunity rover, which will also be accessible through this gem."
