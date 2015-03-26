@@ -16,6 +16,10 @@ class ExploreMars
     puts "--- 'MARDI' (Mars Descent Imager)"
     puts "- ExploreMars::Photo#src will return the source url for the photo"
   end
+
+  def self.get(sol, camera)
+    Call.get(sol, camera)
+  end
 end
 
 require "./lib/explore_mars/call"
