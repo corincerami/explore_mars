@@ -1,7 +1,13 @@
-class ExploreMars::Photo
-  def self.get(sol, camera)
-    uri = URI.parse("https://mars-curiosity-api.herokuapp.com/photos.json?sol=#{sol}&camera=#{camera}")
-    response = Net::HTTP.get(uri)
-    JSON.parse(response)
+class Photo
+  attr_reader :src, :sol, :camera
+
+  def initialize(src, sol, camera)
+    @src = src
+    @sol = sol
+    @camera = camera
+  end
+
+  def to_s
+    @src
   end
 end
