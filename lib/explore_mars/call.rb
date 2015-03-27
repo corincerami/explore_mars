@@ -1,4 +1,4 @@
-class ExploreMars::Call
+class Call
   CAMERAS = ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "NAVCAM", "MAHLI", "MARDI"]
 
   def self.get(sol, camera)

@@ -1,4 +1,4 @@
-require "explore_mars/version"
+require "./lib/explore_mars/version"
 require "uri"
 require "net/http"
 require "json"
