@@ -10,7 +10,7 @@ require "explore_mars/photo"
 
 module ExploreMars
   def self.help
-    puts "- use ExploreMars::Call#get(sol, camera) to receive a collection of photos"
+    puts "- use ExploreMars#get(sol, camera) to receive a collection of photos"
     puts "-- sol argument should be a number representing the Martian day on which the photo was taken"
     puts "-- camera represents the camera with which it was taken, options are:"
     puts "--- 'FHAZ' (Front Hazard Avoidance Camera)"
