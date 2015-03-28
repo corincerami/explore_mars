@@ -1,21 +1,29 @@
-class Call
-  CAMERAS = ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "NAVCAM", "MAHLI", "MARDI"]
+module ExploreMars
+  class Call
+    CAMERAS = ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "NAVCAM", "MAHLI", "MARDI"]
+    attr_reader :sol, :camera
 
-  def self.get(sol, camera)
-    self.check_cameras(camera)
-    uri = URI.parse("https://mars-curiosity-api.herokuapp.com/photos.json?sol=#{sol}&camera=#{camera.upcase}")
-    response = Net::HTTP.get(uri)
-    photos = JSON.parse(response)
-    photos.map { |photo|
-      Photo.new(photo["img_src"], photo["sol"], photo["camera"])
-    }
-  end
+    def initialize(sol, camera)
+      @sol = sol
+      @camera = camera
+    end
 
-  private
+    def get
+      check_cameras(@camera)
+      uri = URI.parse("https://mars-curiosity-api.herokuapp.com/photos.json?sol=#{@sol}&camera=#{@camera.upcase}")
+      response = Net::HTTP.get(uri)
+      photos = JSON.parse(response)
+      photos.map { |photo|
+        ExploreMars::Photo.new(photo["img_src"], photo["sol"], photo["camera"])
+      }
+    end
 
-  def self.check_cameras(camera)
-    if !CAMERAS.include?(camera.upcase)
-      raise "camera argument must be one of #{CAMERAS.join(', ')}"
+    private
+
+    def check_cameras(camera)
+      if !CAMERAS.include?(camera.upcase)
+        raise "Camera argument must be one of #{CAMERAS.join(', ')}"
+      end
     end
   end
 end

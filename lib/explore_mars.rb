@@ -1,7 +1,12 @@
-require "./lib/explore_mars/version"
+# external dependencies
 require "uri"
 require "net/http"
 require "json"
+
+# internal dependencies
+require "explore_mars/version"
+require "explore_mars/call"
+require "explore_mars/photo"
 
 module ExploreMars
   def self.help
@@ -19,9 +24,6 @@ module ExploreMars
   end
 
   def self.get(sol, camera)
-    Call.get(sol, camera)
+    Call.new(sol, camera).get
   end
 end
-
-require "./lib/explore_mars/call"
-require "./lib/explore_mars/photo"
