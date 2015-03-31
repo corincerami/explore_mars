@@ -27,20 +27,26 @@ Or install it yourself as:
 There are only a few parts to this gem so far, so it's relatively simple to use. By calling:
 
 ```ruby
-ExploreMars::Call.get(sol, camera)
+ExploreMars.get(sol, camera)
 ```
 
-you can make a call to the API, which will return a set of ```Photos```. The ```sol``` parameter is the Martian date of Curiosity's expedition during which the photo was taken. The ```camera``` parameter is the particular camera on the rover that the photo was taken with. The cameras are as follows:
+you can make a call to the API, which will return a set of ```Photos```. The ```sol``` parameter is the Martian date of Curiosity's expedition during which the photo was taken. The ```camera``` parameter is the particular camera on the rover that the photo was taken with. The camera argument can be entered as either a string or a symbol and is case insensitive. The cameras are as follows:
 
-  | Abbreviation | Camera                         |
-  |--------------|--------------------------------|
-  |  FHAZ        |  Front Hazard Avoidance Camera |
-  |  RHAZ        |  Rear Hazard Avoidance Camera  |
-  |  MAST        |  Mast Camera                   |
-  |  CHEMCAM     |  Chemistry and Camera Complex  |
-  |  MAHLI       |  Mars Hand Lens Imager         |
-  |  MARDI       |  Mars Descent Imager           |
-  |  NAVCAM      |  Navigation Camera             |
+  Abbreviation | Camera
+  ------------ | ------------------------------
+   FHAZ        |  Front Hazard Avoidance Camera
+   RHAZ        |  Rear Hazard Avoidance Camera
+   MAST        |  Mast Camera
+   CHEMCAM     |  Chemistry and Camera Complex
+   MAHLI       |  Mars Hand Lens Imager
+   MARDI       |  Mars Descent Imager
+   NAVCAM      |  Navigation Camera
+
+You can also make the API call without providing the camera argument to receive all photos that were taken on a particular sol from all cameras:
+
+```ruby
+ExploreMars.get(sol)
+```
 
 The ```Photo``` object has three main attributes: ```sol```, ```camera```, and ```src```. The ```src``` attribute contains the source url of the actual image. In order to display an image in a Rails view for example, I could use:
 
