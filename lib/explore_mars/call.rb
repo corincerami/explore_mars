@@ -3,7 +3,7 @@ module ExploreMars
     CAMERAS = ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "NAVCAM", "MAHLI", "MARDI"]
     attr_reader :sol, :camera
 
-    def initialize(sol, camera)
+    def initialize(sol, camera=nil)
       @sol = sol
       @camera = camera
     end
@@ -21,7 +21,7 @@ module ExploreMars
     private
 
     def check_cameras(camera)
-      if !CAMERAS.include?(camera.upcase)
+      if !camera.nil? && !CAMERAS.include?(camera.upcase)
         raise "Camera argument must be one of #{CAMERAS.join(', ')}"
       end
     end

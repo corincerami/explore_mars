@@ -23,7 +23,7 @@ module ExploreMars
     puts "- ExploreMars::Photo#src will return the source url for the photo"
   end
 
-  def self.get(sol, camera)
+  def self.get(sol, camera=nil)
     Call.new(sol, camera).get
   end
 end
