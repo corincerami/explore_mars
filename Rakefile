@@ -5,3 +5,6 @@ RSpec::Core::RakeTask.new(:spec)
 
 task :default => :spec
 
+task :console do
+  exec "irb -r explore_mars -I ./lib"
+end

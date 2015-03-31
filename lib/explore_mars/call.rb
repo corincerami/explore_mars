@@ -5,12 +5,12 @@ module ExploreMars
 
     def initialize(sol, camera=nil)
       @sol = sol
-      @camera = camera
+      @camera = camera.to_s.upcase
     end
 
     def get
       check_cameras(@camera)
-      uri = URI.parse("https://mars-curiosity-api.herokuapp.com/photos.json?sol=#{@sol}&camera=#{@camera.upcase}")
+      uri = build_uri
       response = Net::HTTP.get(uri)
       photos = JSON.parse(response)
       photos.map { |photo|
@@ -20,8 +20,16 @@ module ExploreMars
 
     private
 
+    def build_uri
+      if !@camera.empty?
+        URI.parse("https://mars-curiosity-api.herokuapp.com/photos.json?sol=#{@sol}&camera=#{@camera}")
+      else
+        URI.parse("https://mars-curiosity-api.herokuapp.com/photos.json?sol=#{@sol}")
+      end
+    end
+
     def check_cameras(camera)
-      if !camera.nil? && !CAMERAS.include?(camera.upcase)
+      if !camera.empty? && !CAMERAS.include?(camera.upcase)
         raise "Camera argument must be one of #{CAMERAS.join(', ')}"
       end
     end
