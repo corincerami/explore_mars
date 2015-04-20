@@ -2,6 +2,7 @@
 require "uri"
 require "net/http"
 require "json"
+require 'active_support/time'
 
 # internal dependencies
 require "explore_mars/version"
