@@ -1,5 +1,6 @@
 module ExploreMars
   class Photo
+    require "date"
     attr_reader :src, :sol, :camera
 
     LANDING_DATE = DateTime.new(2012,8,6,5,17,57)
