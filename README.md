@@ -27,10 +27,10 @@ Or install it yourself as:
 There are only a few parts to this gem so far, so it's relatively simple to use. By calling:
 
 ```ruby
-ExploreMars.get(sol, camera)
+ExploreMars.get_by_sol(sol, camera)
 ```
 
-you can make a call to the API, which will return a set of ```Photos```. The ```sol``` parameter is the Martian date of Curiosity's expedition during which the photo was taken. The ```camera``` parameter is the particular camera on the rover that the photo was taken with. The camera argument can be entered as either a string or a symbol and is case insensitive. The cameras are as follows:
+you can make a call to the API, which will return a set of ```Photos```. The ```sol``` parameter is the Martian date of Curiosity's expedition during which the photo was taken. The ```camera``` parameter is the particular camera on the rover that the photo was taken with. The camera argument can be entered as either a string or a symbol and is not case sensitive. The cameras are as follows:
 
   Abbreviation | Camera
   ------------ | ------------------------------
@@ -48,12 +48,29 @@ You can also make the API call without providing the camera argument to receive 
 ExploreMars.get(sol)
 ```
 
-The ```Photo``` object has three main attributes: ```sol```, ```camera```, and ```src```. The ```src``` attribute contains the source url of the actual image. In order to display an image in a Rails view for example, I could use:
+If you would prefer to query by a particular Earth date instead, you can use:
+
+```ruby
+ExploreMars.get_by_date(date, camera)
+```
+
+or
+
+```ruby
+ExploreMars.get_by_date(date)
+```
+
+The date param should be entered as a String, formatted as "yyyy-mm-dd".
+
+
+The ```Photo``` objects that get returned have three main attributes: ```sol```, ```camera```, ```earth_date```, and ```src```. The ```src``` attribute contains the source url of the actual image. In order to display an image in a Rails view for example, I could use:
 
 ```ruby
 photos = ExploreMars::Call.get(869, "FHAZ")
 
-image_tag(photos.first.src)
+photos.each do |photo|
+  image_tag(photo.src)
+end
 ```
 
 # Contributing
