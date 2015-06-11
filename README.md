@@ -60,7 +60,7 @@ image_tag(photos.first.src)
 
 If you would like to contribute to ExploreMars, feel free to create a pull request. If you'd like to contact me, you can reach me at [chrisccerami@gmail.com](mailto:chrisccerami@gmail.com) or on Twitter [@chrisccerami](https://twitter.com/chrisccerami).
 
-1. Fork it ( https://github.com/[my-github-username]/explore_mars/fork )
+1. Fork it ( https://github.com/chrisccerami/explore_mars/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
