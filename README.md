@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/explore_mars.svg)](http://badge.fury.io/rb/explore_mars)
+[![Gem Version](https://badge.fury.io/rb/explore_mars.svg)](http://badge.fury.io/rb/explore_mars)[![Build Status](https://travis-ci.org/chrisccerami/explore_mars.svg)](https://travis-ci.org/chrisccerami/explore_mars)
 
 # ExploreMars
 
