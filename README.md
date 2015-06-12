@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/explore_mars.svg)](http://badge.fury.io/rb/explore_mars)
+
 # ExploreMars
 
 ## Description
