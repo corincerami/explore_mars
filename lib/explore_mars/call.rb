@@ -1,6 +1,6 @@
 module ExploreMars
   class Call
-    CAMERAS = ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "NAVCAM", "MAHLI", "MARDI"]
+    CAMERAS = ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "NAVCAM", "MAHLI", "MARDI", "PANCAM", "MINITES"]
     BASE_URI = "https://mars-curiosity-api.herokuapp.com/api/v1/rovers/"
 
     def get
