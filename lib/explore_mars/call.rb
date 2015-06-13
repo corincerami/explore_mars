@@ -1,7 +1,7 @@
 module ExploreMars
   class Call
     CAMERAS = ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "NAVCAM", "MAHLI", "MARDI"]
-    BASE_URI = "https://mars-curiosity-api.herokuapp.com/api/v1/photos?"
+    BASE_URI = "https://mars-curiosity-api.herokuapp.com/api/v1/rovers/"
 
     def get
       check_cameras(@camera)
@@ -9,7 +9,9 @@ module ExploreMars
       response = Net::HTTP.get(uri)
       photos = JSON.parse(response)["photos"]
       photos.map { |photo|
-        ExploreMars::Photo.new(photo["img_src"], photo["sol"], photo["camera"], photo["earth_date"])
+        ExploreMars::Photo.new(photo["img_src"], photo["sol"],
+                               @camera, photo["earth_date"],
+                               @rover)
       }
     end
 

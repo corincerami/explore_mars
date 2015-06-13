@@ -1,16 +1,14 @@
 module ExploreMars
   class Photo
     require "date"
-    attr_reader :src, :sol, :camera, :earth_date
+    attr_reader :src, :sol, :camera, :earth_date, :rover
 
-    LANDING_DATE = DateTime.new(2012,8,6,5,17,57)
-    SOL_IN_SECONDS = 88775.244
-
-    def initialize(src, sol, camera, earth_date)
+    def initialize(src, sol, camera, earth_date, rover)
       @src = src
       @sol = sol
       @camera = camera
       @earth_date = Date.strptime(earth_date)
+      @rover = rover
     end
 
     def to_s

@@ -1,15 +1,8 @@
 require "spec_helper"
 
 describe ExploreMars::Call do
-  it "should have a sol and camera attribute" do
-    call = ExploreMars::Call.new(0, "FHAZ")
-
-    expect(call.sol).to eq(0)
-    expect(call.camera).to eq "FHAZ"
-  end
-
-  it "only correct cameras will work" do
-    good_call = ExploreMars::Call.new(0, "FHAZ").get
-    expect(good_call.class).to eq(Array)
+  it "should have proper constants" do
+    expect(ExploreMars::Call::BASE_URI).to eq "https://mars-curiosity-api.herokuapp.com/api/v1/rovers/"
+    expect(ExploreMars::Call::CAMERAS).to eq ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "NAVCAM", "MAHLI", "MARDI"]
   end
 end
