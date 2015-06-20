@@ -28,11 +28,11 @@ module ExploreMars
     puts "- ExploreMars::Photo#src will return the source url for the photo"
   end
 
-  def self.get_by_sol(sol, camera=nil)
-    SolQuery.new(sol, camera).get
+  def self.get_by_sol(rover, sol, camera=nil)
+    SolQuery.new(rover, sol, camera).get
   end
 
-  def self.get_by_date(date, camera=nil)
-    DateQuery.new(date, camera).get
+  def self.get_by_date(rover, date, camera=nil)
+    DateQuery.new(rover, date, camera).get
   end
 end
