@@ -10,7 +10,7 @@ module ExploreMars
       photos = JSON.parse(response)["photos"]
       photos.map { |photo|
         ExploreMars::Photo.new(photo["img_src"], photo["sol"],
-                               @camera, photo["earth_date"],
+                               photo["camera"]["name"], photo["earth_date"],
                                @rover)
       }
     end
