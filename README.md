@@ -75,7 +75,7 @@ sensitive. The cameras are as follows:
 You can also make the API call without providing the camera argument to receive all photos that were taken on a particular sol from all cameras:
 
 ```ruby
-ExploreMars.get(rover, sol)
+ExploreMars.get_by_sol(rover, sol)
 ```
 
 If you would prefer to query by a particular Earth date instead, you can use:
@@ -99,7 +99,7 @@ The ```src``` attribute contains the source url of the actual image.
 In order to display an image in a Rails view for example, I could use:
 
 ```ruby
-photos = ExploreMars::Call.get("curiosity", 869, "FHAZ")
+photos = ExploreMars.get_by_sol("curiosity", 869, "FHAZ")
 
 photos.each do |photo|
   image_tag(photo.src)
