@@ -13,8 +13,9 @@ require "explore_mars/date_query"
 
 module ExploreMars
   def self.help
-    puts "- use ExploreMars#get_by_sol(sol, camera) to receive a collection of photos by sol"
-    puts "- use ExploreMars#get_by_date(date, camera) to receive a collection of photos by Earth date"
+    puts "- use ExploreMars#get_by_sol(rover, sol, camera) to receive a collection of photos by sol"
+    puts "- use ExploreMars#get_by_date(rover, date, camera) to receive a collection of photos by Earth date"
+    puts "-- rover argument should be the name of one of NASA's Mars rovers"
     puts "-- sol argument should be a number representing the Martian day on which the photo was taken"
     puts "-- date argument should be a string formmated as yyyy-mm-dd"
     puts "-- camera represents the camera with which it was taken, options are:"
