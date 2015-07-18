@@ -62,7 +62,7 @@ sensitive. The cameras are as follows:
    MARDI       |  Mars Descent Imager
    NAVCAM      |  Navigation Camera
 
-### Opportunity's Cameras
+### Opportunity's and Spirit's Cameras
 
   Abbreviation | Camera
   ------------ | -----------------------------
