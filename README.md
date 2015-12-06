@@ -38,7 +38,13 @@ There are only a few parts to this gem so far, so it's relatively simple
 to use. By calling:
 
 ```ruby
-ExploreMars.get_by_sol(rover, sol, camera)
+ExploreMars.get_by_sol(rover: <ROVER>, sol: <SOL>, camera: <CAMERA>)
+```
+
+For example:
+
+```ruby
+ExploreMars.get_by_sol(rover: "curiosity", sol: 1000, camera: "FHAZ")
 ```
 
 you can make a call to the API, which will return a set of ```Photos```.
@@ -75,27 +81,32 @@ sensitive. The cameras are as follows:
 You can also make the API call without providing the camera argument to receive all photos that were taken on a particular sol from all cameras:
 
 ```ruby
-ExploreMars.get_by_sol(rover, sol)
+ExploreMars.get_by_sol(rover: <ROVER>, sol: <SOL>)
 ```
 
 If you would prefer to query by a particular Earth date instead, you can use:
 
 ```ruby
-ExploreMars.get_by_date(rover, date, camera)
+ExploreMars.get_by_date(rover: <ROVER>, date: <DATE>, camera: <CAMERA>)
 ```
 
 or
 
 ```ruby
-ExploreMars.get_by_date(rover, date)
+ExploreMars.get_by_date(rover: <ROVER>, date: <DATE>)
 ```
 
 The date param should be entered as a String, formatted as "yyyy-mm-dd".
 
+For example:
 
-The ```Photo``` objects that get returned have five main attributes:
-```rover```, ```sol```, ```camera```, ```earth_date```, and ```src```.
-The ```src``` attribute contains the source url of the actual image.
+```ruby
+ExploreMars.get_by_date(rover: "curiosity", date: "2015-12-4")
+```
+
+The `Photo` objects that get returned have five main attributes:
+`rover`, `sol`, `camera`, `earth_date`, and `src`.
+The `src` attribute contains the source url of the actual image.
 In order to display an image in a Rails view for example, I could use:
 
 ```ruby
