@@ -19,7 +19,7 @@ module ExploreMars
 
     def check_cameras(camera)
       if !camera.empty? && !CAMERAS.include?(camera.upcase)
-        raise "Camera argument must be one of #{CAMERAS.join(', ')}"
+        fail "Camera argument must be one of #{CAMERAS.join(', ')}"
       end
     end
   end
