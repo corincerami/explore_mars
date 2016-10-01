@@ -1,18 +1,15 @@
 module ExploreMars
   class SolQuery < Call
-    attr_accessor :sol, :camera, :rover
+    include Queryable
+
     def initialize(rover, sol, camera=nil)
-      @sol = sol
+      @timescale = sol
       @camera = camera.to_s.upcase
       @rover = rover
     end
 
-    def build_uri
-      if !@camera.empty?
-        URI.parse(BASE_URI + "#{@rover}/" + "photos?sol=#{@sol}&camera=#{@camera}")
-      else
-        URI.parse(BASE_URI + "#{@rover}/" + "photos?sol=#{@sol}")
-      end
+    def sol
+      timescale
     end
   end
 end
