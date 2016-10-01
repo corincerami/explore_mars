@@ -1,7 +1,6 @@
 module ExploreMars
   class Call
     CAMERAS = ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "NAVCAM", "MAHLI", "MARDI", "PANCAM", "MINITES"]
-    BASE_URI = "https://mars-photos.herokuapp.com/api/v1/rovers/"
 
     def get
       check_cameras(@camera)

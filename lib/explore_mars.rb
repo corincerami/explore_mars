@@ -7,6 +7,7 @@ require "json"
 require "explore_mars/version"
 require "explore_mars/call"
 require "explore_mars/photo"
+require "explore_mars/queryable"
 require "explore_mars/sol_query"
 require "explore_mars/date_query"
 
