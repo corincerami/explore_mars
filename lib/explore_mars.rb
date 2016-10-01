@@ -29,12 +29,18 @@ module ExploreMars
   end
 
   def self.get_by_sol(params)
-    fail "Rover and Sol are required" if (params[:rover].blank? || params[:sol].blank?)
-    SolQuery.new(params[:rover], params[:sol], params[:camera]).get
+    self.get_by :sol, params
   end
 
   def self.get_by_date(params)
-    fail "Rover and Date are required" if (params[:rover].blank? || params[:date].blank?)
-    DateQuery.new(params[:rover], params[:date], params[:camera]).get
+    self.get_by :date, params
+  end
+
+  private
+
+  def self.get_by(key, params)
+    fail "Rover and #{key.to_s.capitalize} are required" if (params[:rover].blank? || params[key].blank?)
+    klass = key == :sol ? SolQuery : DateQuery
+    klass.new(params[:rover], params[key], params[:camera]).get
   end
 end
