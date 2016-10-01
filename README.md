@@ -110,7 +110,7 @@ The `src` attribute contains the source url of the actual image.
 In order to display an image in a Rails view for example, I could use:
 
 ```ruby
-photos = ExploreMars.get_by_sol("curiosity", 869, "FHAZ")
+photos = ExploreMars.get_by_sol(rover: "curiosity", sol: 869, camera: "FHAZ")
 
 photos.each do |photo|
   image_tag(photo.src)
